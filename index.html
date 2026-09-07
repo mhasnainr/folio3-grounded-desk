@@ -1,80 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Grounded Desk — source-grounded marketing pack</title>
-  <style>
-    :root { --ink:#12203a; --muted:#5c6780; --line:#dfe3ec; --bg:#f3f5f9; --card:#fff; --accent:#c81e3a; --ok:#0b7a4b; }
-    * { box-sizing: border-box; }
-    body { margin:0; font:16px/1.5 "Segoe UI", system-ui, sans-serif; color:var(--ink); background:var(--bg); }
-    header { background:var(--ink); color:#fff; padding:22px 18px 18px; }
-    .eyebrow { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#f3a0ad; font-weight:700; }
-    header h1 { margin:6px 0; font-size:1.55rem; }
-    header p { margin:0; color:#c5cde0; max-width:40rem; font-size:.95rem; }
-    main { max-width:880px; margin:0 auto; padding:16px 16px 72px; }
-    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin:12px 0; }
-    label { display:block; font-weight:650; font-size:.82rem; margin:8px 0 6px; }
-    textarea, input { width:100%; border:1px solid var(--line); border-radius:10px; padding:10px 12px; font:inherit; }
-    textarea { min-height:92px; }
-    .row { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
-    button { border:0; border-radius:10px; padding:10px 14px; font:650 14px/1 "Segoe UI", system-ui, sans-serif; cursor:pointer; }
-    .primary { background:var(--ink); color:#fff; }
-    .ghost { background:#eef1f6; color:var(--ink); }
-    button:disabled { opacity:.5; }
-    .tabs { display:flex; gap:6px; overflow-x:auto; }
-    .tabs button { background:#fff; border:1px solid var(--line); color:var(--ink); }
-    .tabs button.on { background:var(--ink); color:#fff; border-color:var(--ink); }
-    pre { white-space:pre-wrap; word-break:break-word; font:13.5px/1.45 ui-monospace, Consolas, monospace; margin:0; }
-    .status { font-size:.85rem; color:var(--muted); min-height:1.3em; }
-    .status.err { color:var(--accent); }
-    .status.ok { color:var(--ok); }
-    .src { border-top:1px solid var(--line); padding:10px 0; font-size:.92rem; }
-    .src a { color:#2c4a7c; word-break:break-all; }
-    .quote { color:var(--muted); font-size:.86rem; margin:4px 0 0; }
-    details { margin-top:10px; color:var(--muted); font-size:.86rem; }
-    footer { color:var(--muted); font-size:.8rem; margin-top:18px; }
-    .warn { border-left:3px solid var(--accent); padding:2px 0 2px 10px; color:var(--muted); font-size:.88rem; }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Grounded Desk</title>
+<style>
+:root{--ink:#12203a;--muted:#5c6780;--line:#dfe3ec;--bg:#f3f5f9;--accent:#c81e3a;--ok:#0b7a4b}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 Segoe UI,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:var(--ink);color:#fff;padding:22px 18px}h1{margin:6px 0 8px;font-size:1.55rem}header p{margin:0;color:#c5cde0}
+main{max-width:880px;margin:0 auto;padding:16px 16px 64px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
+label{display:block;font-weight:650;font-size:.82rem;margin:8px 0 6px}
+textarea,input{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit}textarea{min-height:88px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+button{border:0;border-radius:10px;padding:10px 14px;font-weight:650;cursor:pointer}
+.primary{background:var(--ink);color:#fff}.ghost{background:#eef1f6}
+.tabs{display:flex;gap:6px;overflow-x:auto}.tabs button{background:#fff;border:1px solid var(--line)}
+.tabs button.on{background:var(--ink);color:#fff}
+pre{white-space:pre-wrap;word-break:break-word;font:13px/1.45 ui-monospace,Consolas,monospace;margin:0}
+.status{font-size:.85rem;color:var(--muted)}.err{color:var(--accent)}.ok{color:var(--ok)}
+.src{border-top:1px solid var(--line);padding:10px 0}.quote{color:var(--muted);font-size:.86rem}
+.warn{border-left:3px solid var(--accent);padding-left:10px;color:var(--muted);font-size:.88rem}
+</style>
 </head>
 <body>
-  <header>
-    <div class="eyebrow">Work sample · not a Folio3 product · no live ads account</div>
-    <h1>Grounded Desk</h1>
-    <p>Paste public URLs. The app pulls visible text, writes a brief and drafts, and lists claims it refused to invent.</p>
-  </header>
-  <main>
-    <p class="warn">Muhammad Hasnain · IoBM Math & Econ · 6th semester · CGPA 2.63. Campus email asked for final-year Marketing / Media / Communications.</p>
-    <section class="card">
-      <label for="urls">Public page URLs (one per line)</label>
-      <textarea id="urls" placeholder="https://folio3.com/"></textarea>
-      <div class="row">
-        <button class="primary" id="btn-demo" type="button">Load Folio3 demo</button>
-        <button class="ghost" id="btn-fetch" type="button">Fetch pages</button>
-        <button class="primary" id="btn-run" type="button">Build pack</button>
-        <button class="ghost" id="btn-copy" type="button">Copy current tab</button>
-      </div>
-      <p class="status" id="status">Tap Load Folio3 demo, then Build pack. That is the test path for a recruiter.</p>
-      <details>
-        <summary>Paste text if fetch is blocked · optional xAI key</summary>
-        <label for="paste">Raw page text</label>
-        <textarea id="paste"></textarea>
-        <label for="key">xAI API key (browser only, optional)</label>
-        <input id="key" type="password" autocomplete="off" placeholder="xai-…" />
-      </details>
-    </section>
-    <div class="tabs">
-      <button class="on" data-tab="sources" type="button">Sources</button>
-      <button data-tab="brief" type="button">Brief</button>
-      <button data-tab="drafts" type="button">Drafts</button>
-      <button data-tab="cuts" type="button">Cuts</button>
-    </div>
-    <section class="card">
-      <div id="view-sources"></div>
-      <pre id="view-text" hidden></pre>
-    </section>
-    <footer>GitHub’s file view shows code. This page is the app. Fetch uses a public CORS proxy and can fail — then paste text.</footer>
-  </main>
-  <script src="./app.js"></script>
+<header>
+<div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#f3a0ad;font-weight:700">Work sample · not a Folio3 product</div>
+<h1>Grounded Desk</h1>
+<p>Public URLs in. Sourced brief and drafts out. No invented metrics.</p>
+</header>
+<main>
+<p class="warn">Muhammad Hasnain · IoBM Math & Econ · 6th semester · CGPA 2.63</p>
+<section class="card">
+<label for="urls">Public page URLs</label>
+<textarea id="urls" placeholder="https://folio3.com/"></textarea>
+<div class="row">
+<button class="primary" id="btn-demo" type="button">Load Folio3 demo</button>
+<button class="ghost" id="btn-fetch" type="button">Fetch pages</button>
+<button class="primary" id="btn-run" type="button">Build pack</button>
+<button class="ghost" id="btn-copy" type="button">Copy tab</button>
+</div>
+<p class="status" id="status">Tap Load Folio3 demo, then Build pack.</p>
+<details><summary>Paste text if fetch is blocked</summary>
+<textarea id="paste" placeholder="Paste homepage text"></textarea>
+</details>
+</section>
+<div class="tabs">
+<button class="on" data-tab="sources" type="button">Sources</button>
+<button data-tab="brief" type="button">Brief</button>
+<button data-tab="drafts" type="button">Drafts</button>
+<button data-tab="cuts" type="button">Cuts</button>
+</div>
+<section class="card"><div id="view-sources"></div><pre id="view-text" hidden></pre></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const DEMO=[{url:"https://folio3.com/",title:"Folio3",quotes:["Trusted AI transformation partner from idea to scale.","Agentic AI orchestrates workflows next to ERP work.","20+ years, 700+ employees, offices in Karachi, Lahore, Islamabad."]},{url:"https://folio3.com/about-us/",title:"About",quotes:["Divisions include AI/ML, NetSuite, Salesforce, Dynamics, ecommerce."]},{url:"https://folio3.com/jobs/mto-marketing/",title:"MTO Marketing",quotes:["Campaigns, social/email/blog content, research, performance notes.","SEO, SEM, social, basic GA, writing, deadlines."]}];
+let sources=[],pack={brief:"",drafts:"",cuts:""},tab="sources";
+function setStatus(m,k){const e=$("status");e.textContent=m;e.className="status "+(k||"")}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({ "&":"&","<":"<",">":">",'"':""","'":"&#39;"}[c]))}
+function renderSources(){const b=$("view-sources");if(!sources.length){b.innerHTML="<p class=quote>No sources yet.</p>";return;}b.innerHTML=sources.map(s=>`<div class=src><strong>${esc(s.title||"")}</strong><br><a href="${esc(s.url)}">${esc(s.url)}</a>${(s.quotes||[]).map(q=>`<p class=quote>${esc(q)}</p>`).join("")}</div>`).join("")}
+function showTab(n){tab=n;document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.tab===n));const src=$("view-sources"),pre=$("view-text");if(n==="sources"){src.hidden=false;pre.hidden=true;renderSources()}else{src.hidden=true;pre.hidden=false;pre.textContent=pack[n]||"Build the pack first."}}
+function sentences(t){return (t||"").replace(/\s+/g," ").split(/(?<=[.?!])\s+/).map(x=>x.trim()).filter(x=>x.length>=40&&x.length<=220)}
+function extract(html,url){const doc=new DOMParser().parseFromString(html,"text/html");doc.querySelectorAll("script,style,nav,footer").forEach(n=>n.remove());const title=(doc.querySelector("h1")?.textContent||doc.title||url).trim().slice(0,140);const chunks=[...doc.querySelectorAll("h1,h2,h3,p,li")].map(n=>n.textContent.replace(/\s+/g," ").trim()).filter(Boolean);const quotes=[];for(const c of chunks){for(const s of sentences(c)){if(!quotes.includes(s))quotes.push(s);if(quotes.length>=6)break}if(quotes.length>=6)break}if(!quotes.length&&chunks[0])quotes.push(chunks[0].slice(0,200));return{url,title,quotes}}
+async function fetchOne(url){const proxies=[u=>"https://api.allorigins.win/raw?url="+encodeURIComponent(u),u=>"https://corsproxy.io/?"+encodeURIComponent(u)];let last="";for(const make of proxies){try{const res=await fetch(make(url),{signal:AbortSignal.timeout(12000)});if(!res.ok){last="HTTP "+res.status;continue}const html=await res.text();if(html.length<80){last="empty";continue}return extract(html,url)}catch(e){last=e.message}}throw new Error(last||"fail")}
+function buildPack(list){const all=list.flatMap(s=>(s.quotes||[]).map(q=>({q,url:s.url})));const urls=list.map(s=>s.url);pack.brief=["BRIEF","","Pages:",...urls.map(u=>"- "+u),"","Quoted:",...all.slice(0,8).map(x=>"- "+x.q+" ["+x.url+"]")].join("\n");pack.drafts=["DRAFTS","","LinkedIn",(all[0]&&all[0].q)||"","Grounded in: "+urls.join(" | "),"","Blog outline: define a homepage term inside a named product.","Email: drafted from public pages only. Do not send."].join("\n");pack.cuts=["CUTS","No CAC/ROAS.","Not a Folio3 employee.","No GA login."].join("\n")}
+$("btn-demo").onclick=function(){sources=DEMO.map(s=>({url:s.url,title:s.title,quotes:s.quotes.slice()}));$("urls").value=DEMO.map(s=>s.url).join("\n");buildPack(sources);showTab("brief");setStatus("Demo pack loaded.","ok")};
+$("btn-fetch").onclick=async function(){const urls=$("urls").value.split(/\s+/).filter(u=>/^https?:\/\//i.test(u));const paste=$("paste").value.trim();if(!urls.length&&!paste){setStatus("Add a URL or paste text.","err");return}sources=[];setStatus("Fetching...");try{for(const url of urls){try{sources.push(await fetchOne(url))}catch(e){sources.push({url,title:"Blocked",quotes:[String(e.message||e)]})}}if(paste)sources.push({url:urls[0]||"pasted",title:"Pasted",quotes:sentences(paste).slice(0,6)});showTab("sources");setStatus("Hit Build pack.","ok")}catch(e){setStatus(String(e),"err")}};
+$("btn-run").onclick=function(){if(!sources.length){setStatus("Load demo or fetch first.","err");return}buildPack(sources);showTab("brief");setStatus("Pack ready.","ok")};
+$("btn-copy").onclick=async function(){const text=tab==="sources"?sources.map(s=>s.url+"\n"+(s.quotes||[]).join("\n")).join("\n\n"):(pack[tab]||"");try{await navigator.clipboard.writeText(text);setStatus("Copied.","ok")}catch(e){setStatus("Select the text.","err")}};
+document.querySelector(".tabs").addEventListener("click",function(e){const b=e.target.closest("button[data-tab]");if(b)showTab(b.dataset.tab)});
+renderSources();
+</script>
 </body>
 </html>
