@@ -1,99 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Folio3 Grounded Desk</title>
-<style>
-:root{--ink:#1b2a4a;--muted:#5b6578;--line:#e6e8ee;--bg:#f6f7fb;--accent:#c81e3a}
-body{margin:0;font:16px/1.5 system-ui,Segoe UI,sans-serif;color:var(--ink);background:var(--bg)}
-header{background:var(--ink);color:#fff;padding:28px 20px}
-header p{color:#c9d0de;max-width:720px}
-main{max-width:880px;margin:0 auto;padding:24px 20px 64px}
-.tag{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#ff8a9a;font-weight:700}
-h1{margin:8px 0;font-size:28px}
-.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0}
-button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 12px;cursor:pointer;margin:0 6px 8px 0}
-button.active{background:var(--ink);color:#fff}
-pre{white-space:pre-wrap;font:13px/1.45 ui-monospace,Consolas,monospace}
-.warn{border-left:3px solid var(--accent);padding-left:12px;color:var(--muted)}
-a{color:#2c4a7c}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="refresh" content="0; url=../index.html" />
+  <title>Grounded Desk</title>
 </head>
 <body>
-<header>
-<div class="tag">Work sample · not a Folio3 product</div>
-<h1>Grounded Desk</h1>
-<p>Collect public pages → brief → drafts → delete unsupported claims. Shows how an MTO could support Folio3 tech marketing without fake metrics.</p>
-</header>
-<main>
-<p class="warn">Muhammad Hasnain · IoBM Math &amp; Econ · 6th semester · CGPA 2.63 · expected Dec 2027. Campus email asked for final-year Marketing/Media/Comms. This page does not change that.</p>
-<div>
-<button class="active" data-tab="brief">Brief</button>
-<button data-tab="content">Drafts</button>
-<button data-tab="cuts">Cuts</button>
-<button data-tab="flow">Tool split</button>
-</div>
-<div class="card"><pre id="out"></pre></div>
-<div class="card">
-<p>Four draft-only bots: F3-Chief, F3-Research, F3-Listen, F3-Comms. A recruiter cannot sit in my Grok Bot. Use this page and sample-output/.</p>
-<p><a href="https://github.com/mhasnainr/folio3-grounded-desk">github.com/mhasnainr/folio3-grounded-desk</a></p>
-</div>
-</main>
-<script>
-const tabs={
-brief:`POSITIONING (public pages)
-Folio3: AI-first digital transformation — agentic workflows + ERP/CRM/ecommerce.
-Published proof: 20+ years, 700+ employees, offices in Karachi / Lahore / Islamabad.
-
-MTO JD: campaigns, content, research, performance notes.
-Skills listed: SEO/SEM/social, basic GA, writing, deadlines.
-
-GAPS AN MTO COULD FILL
-1. Explain agentic in ERP language.
-2. One-claim-per-post from partner pages.
-3. Monday public-page competitor scan.
-4. SEO briefs from their Senior SEO language.
-5. Employer-brand copy matching published values.
-
-Empty competitor cells stay empty.`,
-content:`LINKEDIN (unpublished)
-Most AI transformation copy skips the unglamorous part: the system of record still has to close the month.
-Folio3 public pages put agentic workflows next to ERP and CRM work.
-Failure mode: a model that cannot point at the record it just changed.
-
-BLOG OUTLINE
-What agentic has to mean inside an ERP implementation.
-
-EMAIL OPENER (not sent)
-You already pay for NetSuite or Salesforce to be the system of record.
-Does an AI-first partner operate inside that record or only beside it?`,
-cuts:`DELETED
-- Fake MTO conversion rate
-- Fake CAC / ROAS
-- As someone on the marketing team
-- Competitor headcount I did not quote
-- Expert in GA / Meta Ads
-
-KEPT
-- Homepage positioning
-- Office cities
-- JD responsibilities
-- Product names Folio3 lists itself`,
-flow:`SuperGrok   think, write, red-team
-Grok Bot    collect pages + X posts, draft-only
-Automations optional Monday public scan
-Connectors  Drive to save files — no Folio3 CRM
-Grok Build  edit this repo only`};
-const out=document.getElementById('out');
-out.textContent=tabs.brief;
-document.querySelector('main').addEventListener('click',e=>{
-const b=e.target.closest('button[data-tab]');
-if(!b)return;
-document.querySelectorAll('button[data-tab]').forEach(x=>x.classList.remove('active'));
-b.classList.add('active');
-out.textContent=tabs[b.dataset.tab];
-});
-</script>
+  <p><a href="../index.html">Open Grounded Desk</a></p>
 </body>
 </html>
