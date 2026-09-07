@@ -5,72 +5,102 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Grounded Desk</title>
 <style>
-:root{--ink:#12203a;--muted:#5c6780;--line:#dfe3ec;--bg:#f3f5f9;--accent:#c81e3a;--ok:#0b7a4b}
-*{box-sizing:border-box}body{margin:0;font:16px/1.5 Segoe UI,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
-header{background:var(--ink);color:#fff;padding:22px 18px}h1{margin:6px 0 8px;font-size:1.55rem}header p{margin:0;color:#c5cde0}
+body{margin:0;font:16px/1.5 Segoe UI,system-ui,sans-serif;color:#12203a;background:#f3f5f9}
+header{background:#12203a;color:#fff;padding:22px 18px}
+h1{margin:6px 0 8px;font-size:1.5rem}
+header p{margin:0;color:#c5cde0}
 main{max-width:880px;margin:0 auto;padding:16px 16px 64px}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
-label{display:block;font-weight:650;font-size:.82rem;margin:8px 0 6px}
-textarea,input{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit}textarea{min-height:88px}
-.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-button{border:0;border-radius:10px;padding:10px 14px;font-weight:650;cursor:pointer}
-.primary{background:var(--ink);color:#fff}.ghost{background:#eef1f6}
-.tabs{display:flex;gap:6px;overflow-x:auto}.tabs button{background:#fff;border:1px solid var(--line)}
-.tabs button.on{background:var(--ink);color:#fff}
-pre{white-space:pre-wrap;word-break:break-word;font:13px/1.45 ui-monospace,Consolas,monospace;margin:0}
-.status{font-size:.85rem;color:var(--muted)}.err{color:var(--accent)}.ok{color:var(--ok)}
-.src{border-top:1px solid var(--line);padding:10px 0}.quote{color:var(--muted);font-size:.86rem}
-.warn{border-left:3px solid var(--accent);padding-left:10px;color:var(--muted);font-size:.88rem}
+.card{background:#fff;border:1px solid #dfe3ec;border-radius:14px;padding:14px;margin:12px 0}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+button{border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}
+.primary{background:#12203a;color:#fff}.ghost{background:#eef1f6}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{background:#fff;border:1px solid #dfe3ec}
+.tabs button.on{background:#12203a;color:#fff}
+pre{white-space:pre-wrap;word-break:break-word;font:13px/1.45 Consolas,monospace;margin:0}
+.warn{border-left:3px solid #c81e3a;padding-left:10px;color:#5c6780;font-size:.9rem}
+.ok{color:#0b7a4b;font-size:.9rem}
+.src{border-top:1px solid #dfe3ec;padding:8px 0}
+.quote{color:#5c6780;font-size:.86rem;margin:4px 0 0}
+.panel{display:none}.panel.on{display:block}
 </style>
 </head>
 <body>
 <header>
-<div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#f3a0ad;font-weight:700">Work sample · not a Folio3 product</div>
+<div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#f3a0ad;font-weight:700">Work sample - not a Folio3 product</div>
 <h1>Grounded Desk</h1>
-<p>Public URLs in. Sourced brief and drafts out. No invented metrics.</p>
+<p>Turns public web pages into a sourced marketing brief. No invented metrics.</p>
 </header>
 <main>
-<p class="warn">Muhammad Hasnain · IoBM Math & Econ · 6th semester · CGPA 2.63</p>
-<section class="card">
-<label for="urls">Public page URLs</label>
-<textarea id="urls" placeholder="https://folio3.com/"></textarea>
-<div class="row">
-<button class="primary" id="btn-demo" type="button">Load Folio3 demo</button>
-<button class="ghost" id="btn-fetch" type="button">Fetch pages</button>
-<button class="primary" id="btn-run" type="button">Build pack</button>
-<button class="ghost" id="btn-copy" type="button">Copy tab</button>
+<p class="warn">Muhammad Hasnain - IoBM Math and Econ - 6th semester - CGPA 2.63</p>
+<p class="ok" id="status">Demo pack is already loaded. Tap Brief, Drafts, or Cuts.</p>
+<div class="row tabs">
+<button class="on" type="button" id="t-sources">Sources</button>
+<button type="button" id="t-brief">Brief</button>
+<button type="button" id="t-drafts">Drafts</button>
+<button type="button" id="t-cuts">Cuts</button>
 </div>
-<p class="status" id="status">Tap Load Folio3 demo, then Build pack.</p>
-<details><summary>Paste text if fetch is blocked</summary>
-<textarea id="paste" placeholder="Paste homepage text"></textarea>
-</details>
+<section class="card panel on" id="p-sources">
+<div class="src"><strong>Folio3 homepage</strong><br>https://folio3.com/<p class="quote">Trusted AI transformation partner from idea to scale.</p><p class="quote">20+ years, 700+ employees, offices in Karachi, Lahore, Islamabad.</p></div>
+<div class="src"><strong>About</strong><br>https://folio3.com/about-us/<p class="quote">Divisions include AI/ML, NetSuite, Salesforce, Dynamics, ecommerce.</p></div>
+<div class="src"><strong>MTO Marketing job</strong><br>https://folio3.com/jobs/mto-marketing/<p class="quote">Campaigns, social/email/blog content, research, performance notes.</p><p class="quote">SEO, SEM, social, basic GA, writing, deadlines.</p></div>
 </section>
-<div class="tabs">
-<button class="on" data-tab="sources" type="button">Sources</button>
-<button data-tab="brief" type="button">Brief</button>
-<button data-tab="drafts" type="button">Drafts</button>
-<button data-tab="cuts" type="button">Cuts</button>
-</div>
-<section class="card"><div id="view-sources"></div><pre id="view-text" hidden></pre></section>
+<section class="card panel" id="p-brief">
+<pre>BRIEF
+
+Pages used
+- https://folio3.com/
+- https://folio3.com/about-us/
+- https://folio3.com/jobs/mto-marketing/
+
+What those pages say
+- Trusted AI transformation partner from idea to scale.
+- Divisions include AI/ML, NetSuite, Salesforce, Dynamics, ecommerce.
+- MTO work: campaigns, content, research, performance notes.
+
+What an MTO can draft next
+- One LinkedIn post that repeats a single quoted line and names the URL.
+- A short blog outline that defines one homepage term (for example agentic) inside a named product (NetSuite or Salesforce).
+- A Monday check of the same three URLs for headline changes.</pre>
+</section>
+<section class="card panel" id="p-drafts">
+<pre>DRAFTS - unpublished
+
+LinkedIn
+Trusted AI transformation partner from idea to scale.
+If the work touches a system of record, the copy should point at a page a buyer can open.
+Source: folio3.com
+
+Blog outline
+Title: What a homepage word has to mean in delivery
+- Quote the homepage line
+- Map it to NetSuite, Salesforce, or ecommerce as named on About
+- One section listing claims this desk will not invent
+
+Email opener - do not send
+Subject: A one-page read from public sources
+I drafted this from pages anyone can open. If a line has no URL, it was deleted.</pre>
+</section>
+<section class="card panel" id="p-cuts">
+<pre>CUTS - refused on purpose
+- Campaign CAC / ROAS / MTO conversion percent - not on those pages
+- Writing as a Folio3 marketer - the applicant is not on that team
+- Competitor revenue - no competitor URL was used
+- Expert in Google Analytics or Meta Ads - this page does not connect to those tools</pre>
+</section>
 </main>
 <script>
-const $=id=>document.getElementById(id);
-const DEMO=[{url:"https://folio3.com/",title:"Folio3",quotes:["Trusted AI transformation partner from idea to scale.","Agentic AI orchestrates workflows next to ERP work.","20+ years, 700+ employees, offices in Karachi, Lahore, Islamabad."]},{url:"https://folio3.com/about-us/",title:"About",quotes:["Divisions include AI/ML, NetSuite, Salesforce, Dynamics, ecommerce."]},{url:"https://folio3.com/jobs/mto-marketing/",title:"MTO Marketing",quotes:["Campaigns, social/email/blog content, research, performance notes.","SEO, SEM, social, basic GA, writing, deadlines."]}];
-let sources=[],pack={brief:"",drafts:"",cuts:""},tab="sources";
-function setStatus(m,k){const e=$("status");e.textContent=m;e.className="status "+(k||"")}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({ "&":"&","<":"<",">":">",'"':""","'":"&#39;"}[c]))}
-function renderSources(){const b=$("view-sources");if(!sources.length){b.innerHTML="<p class=quote>No sources yet.</p>";return;}b.innerHTML=sources.map(s=>`<div class=src><strong>${esc(s.title||"")}</strong><br><a href="${esc(s.url)}">${esc(s.url)}</a>${(s.quotes||[]).map(q=>`<p class=quote>${esc(q)}</p>`).join("")}</div>`).join("")}
-function showTab(n){tab=n;document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.tab===n));const src=$("view-sources"),pre=$("view-text");if(n==="sources"){src.hidden=false;pre.hidden=true;renderSources()}else{src.hidden=true;pre.hidden=false;pre.textContent=pack[n]||"Build the pack first."}}
-function sentences(t){return (t||"").replace(/\s+/g," ").split(/(?<=[.?!])\s+/).map(x=>x.trim()).filter(x=>x.length>=40&&x.length<=220)}
-function extract(html,url){const doc=new DOMParser().parseFromString(html,"text/html");doc.querySelectorAll("script,style,nav,footer").forEach(n=>n.remove());const title=(doc.querySelector("h1")?.textContent||doc.title||url).trim().slice(0,140);const chunks=[...doc.querySelectorAll("h1,h2,h3,p,li")].map(n=>n.textContent.replace(/\s+/g," ").trim()).filter(Boolean);const quotes=[];for(const c of chunks){for(const s of sentences(c)){if(!quotes.includes(s))quotes.push(s);if(quotes.length>=6)break}if(quotes.length>=6)break}if(!quotes.length&&chunks[0])quotes.push(chunks[0].slice(0,200));return{url,title,quotes}}
-async function fetchOne(url){const proxies=[u=>"https://api.allorigins.win/raw?url="+encodeURIComponent(u),u=>"https://corsproxy.io/?"+encodeURIComponent(u)];let last="";for(const make of proxies){try{const res=await fetch(make(url),{signal:AbortSignal.timeout(12000)});if(!res.ok){last="HTTP "+res.status;continue}const html=await res.text();if(html.length<80){last="empty";continue}return extract(html,url)}catch(e){last=e.message}}throw new Error(last||"fail")}
-function buildPack(list){const all=list.flatMap(s=>(s.quotes||[]).map(q=>({q,url:s.url})));const urls=list.map(s=>s.url);pack.brief=["BRIEF","","Pages:",...urls.map(u=>"- "+u),"","Quoted:",...all.slice(0,8).map(x=>"- "+x.q+" ["+x.url+"]")].join("\n");pack.drafts=["DRAFTS","","LinkedIn",(all[0]&&all[0].q)||"","Grounded in: "+urls.join(" | "),"","Blog outline: define a homepage term inside a named product.","Email: drafted from public pages only. Do not send."].join("\n");pack.cuts=["CUTS","No CAC/ROAS.","Not a Folio3 employee.","No GA login."].join("\n")}
-$("btn-demo").onclick=function(){sources=DEMO.map(s=>({url:s.url,title:s.title,quotes:s.quotes.slice()}));$("urls").value=DEMO.map(s=>s.url).join("\n");buildPack(sources);showTab("brief");setStatus("Demo pack loaded.","ok")};
-$("btn-fetch").onclick=async function(){const urls=$("urls").value.split(/\s+/).filter(u=>/^https?:\/\//i.test(u));const paste=$("paste").value.trim();if(!urls.length&&!paste){setStatus("Add a URL or paste text.","err");return}sources=[];setStatus("Fetching...");try{for(const url of urls){try{sources.push(await fetchOne(url))}catch(e){sources.push({url,title:"Blocked",quotes:[String(e.message||e)]})}}if(paste)sources.push({url:urls[0]||"pasted",title:"Pasted",quotes:sentences(paste).slice(0,6)});showTab("sources");setStatus("Hit Build pack.","ok")}catch(e){setStatus(String(e),"err")}};
-$("btn-run").onclick=function(){if(!sources.length){setStatus("Load demo or fetch first.","err");return}buildPack(sources);showTab("brief");setStatus("Pack ready.","ok")};
-$("btn-copy").onclick=async function(){const text=tab==="sources"?sources.map(s=>s.url+"\n"+(s.quotes||[]).join("\n")).join("\n\n"):(pack[tab]||"");try{await navigator.clipboard.writeText(text);setStatus("Copied.","ok")}catch(e){setStatus("Select the text.","err")}};
-document.querySelector(".tabs").addEventListener("click",function(e){const b=e.target.closest("button[data-tab]");if(b)showTab(b.dataset.tab)});
-renderSources();
+function show(name){
+  var panels=['sources','brief','drafts','cuts'];
+  for(var i=0;i<panels.length;i++){
+    document.getElementById('p-'+panels[i]).className='card panel'+(panels[i]===name?' on':'');
+    document.getElementById('t-'+panels[i]).className=panels[i]===name?'on':'';
+  }
+}
+document.getElementById('t-sources').onclick=function(){show('sources')};
+document.getElementById('t-brief').onclick=function(){show('brief')};
+document.getElementById('t-drafts').onclick=function(){show('drafts')};
+document.getElementById('t-cuts').onclick=function(){show('cuts')};
 </script>
 </body>
 </html>
