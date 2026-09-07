@@ -4,8 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Grounded Desk — source-grounded marketing pack</title>
+  <style>
+    :root { --ink:#12203a; --muted:#5c6780; --line:#dfe3ec; --bg:#f3f5f9; --card:#fff; --accent:#c81e3a; --ok:#0b7a4b; }
+    * { box-sizing: border-box; }
+    body { margin:0; font:16px/1.5 "Segoe UI", system-ui, sans-serif; color:var(--ink); background:var(--bg); }
+    header { background:var(--ink); color:#fff; padding:22px 18px 18px; }
+    .eyebrow { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#f3a0ad; font-weight:700; }
+    header h1 { margin:6px 0; font-size:1.55rem; }
+    header p { margin:0; color:#c5cde0; max-width:40rem; font-size:.95rem; }
+    main { max-width:880px; margin:0 auto; padding:16px 16px 72px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin:12px 0; }
+    label { display:block; font-weight:650; font-size:.82rem; margin:8px 0 6px; }
+    textarea, input { width:100%; border:1px solid var(--line); border-radius:10px; padding:10px 12px; font:inherit; }
+    textarea { min-height:92px; }
+    .row { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    button { border:0; border-radius:10px; padding:10px 14px; font:650 14px/1 "Segoe UI", system-ui, sans-serif; cursor:pointer; }
+    .primary { background:var(--ink); color:#fff; }
+    .ghost { background:#eef1f6; color:var(--ink); }
+    button:disabled { opacity:.5; }
+    .tabs { display:flex; gap:6px; overflow-x:auto; }
+    .tabs button { background:#fff; border:1px solid var(--line); color:var(--ink); }
+    .tabs button.on { background:var(--ink); color:#fff; border-color:var(--ink); }
+    pre { white-space:pre-wrap; word-break:break-word; font:13.5px/1.45 ui-monospace, Consolas, monospace; margin:0; }
+    .status { font-size:.85rem; color:var(--muted); min-height:1.3em; }
+    .status.err { color:var(--accent); }
+    .status.ok { color:var(--ok); }
+    .src { border-top:1px solid var(--line); padding:10px 0; font-size:.92rem; }
+    .src a { color:#2c4a7c; word-break:break-all; }
+    .quote { color:var(--muted); font-size:.86rem; margin:4px 0 0; }
+    details { margin-top:10px; color:var(--muted); font-size:.86rem; }
+    footer { color:var(--muted); font-size:.8rem; margin-top:18px; }
+    .warn { border-left:3px solid var(--accent); padding:2px 0 2px 10px; color:var(--muted); font-size:.88rem; }
+  </style>
 </head>
 <body>
-<p>Placeholder — use full app file from next commit.</p>
+  <header>
+    <div class="eyebrow">Work sample · not a Folio3 product · no live ads account</div>
+    <h1>Grounded Desk</h1>
+    <p>Paste public URLs. The app pulls visible text, writes a brief and drafts, and lists claims it refused to invent.</p>
+  </header>
+  <main>
+    <p class="warn">Muhammad Hasnain · IoBM Math & Econ · 6th semester · CGPA 2.63. Campus email asked for final-year Marketing / Media / Communications.</p>
+    <section class="card">
+      <label for="urls">Public page URLs (one per line)</label>
+      <textarea id="urls" placeholder="https://folio3.com/"></textarea>
+      <div class="row">
+        <button class="primary" id="btn-demo" type="button">Load Folio3 demo</button>
+        <button class="ghost" id="btn-fetch" type="button">Fetch pages</button>
+        <button class="primary" id="btn-run" type="button">Build pack</button>
+        <button class="ghost" id="btn-copy" type="button">Copy current tab</button>
+      </div>
+      <p class="status" id="status">Tap Load Folio3 demo, then Build pack. That is the test path for a recruiter.</p>
+      <details>
+        <summary>Paste text if fetch is blocked · optional xAI key</summary>
+        <label for="paste">Raw page text</label>
+        <textarea id="paste"></textarea>
+        <label for="key">xAI API key (browser only, optional)</label>
+        <input id="key" type="password" autocomplete="off" placeholder="xai-…" />
+      </details>
+    </section>
+    <div class="tabs">
+      <button class="on" data-tab="sources" type="button">Sources</button>
+      <button data-tab="brief" type="button">Brief</button>
+      <button data-tab="drafts" type="button">Drafts</button>
+      <button data-tab="cuts" type="button">Cuts</button>
+    </div>
+    <section class="card">
+      <div id="view-sources"></div>
+      <pre id="view-text" hidden></pre>
+    </section>
+    <footer>GitHub’s file view shows code. This page is the app. Fetch uses a public CORS proxy and can fail — then paste text.</footer>
+  </main>
+  <script src="./app.js"></script>
 </body>
 </html>
